@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newspaper Owner Dashboard</title>
+    <link rel="stylesheet" href="owner_style.css">
+</head>
+<body>
+    <div id="dashboard-container" style="display: none;">
+        <div id="header">
+            <h1>Newspaper Submissions</h1>
+            <p>Review and approve new articles and ads.</p>
+        </div>
+
+        <div id="issue-details">
+            <input type="text" id="issue-date" placeholder="Date (e.g., August 31, 1899)">
+            <input type="text" id="issue-volume" placeholder="Volume (e.g., VOL. 001)">
+            <input type="text" id="issue-number" placeholder="Issue No. (e.g., NO. 1)">
+        </div>
+
+        <div id="submissions-list">
+            <p id="no-submissions-message">No pending submissions.</p>
+        </div>
+        
+        <div id="price-settings">
+            <h3>Price Settings</h3>
+            <div class="price-inputs">
+                <input type="number" id="newspaper-price-input" placeholder="Newspaper Price ($)">
+                <input type="number" id="latest-news-price-input" placeholder="Latest News Price ($)">
+                <input type="number" id="business-ad-price-input" placeholder="Business Ad Price ($)">
+                <input type="number" id="private-sales-price-input" placeholder="Private Sales Price ($)">
+            </div>
+            <button id="savePricesButton">Save Prices</button>
+        </div>
+
+        <div class="footer-buttons">
+            <button id="publishButton">Publish Newspaper</button>
+            <button id="writeArticleButton">Write My Own</button>
+            <button id="closeButton">Close</button>
+        </div>
+    </div>
+
+    <script src="owner_script.js"></script>
+</body>
+</html>
