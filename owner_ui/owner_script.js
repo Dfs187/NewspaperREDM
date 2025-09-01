@@ -87,7 +87,7 @@ function sendAction(action, index) {
     })
     .then(fetchSubmissions)
     .catch(error => {
-        console.error('Error with submission action:', error);
+        alert('Error with submission action: ' + (error.message || error));
         fetchSubmissions(); // Refresh anyway
     });
 }
@@ -101,7 +101,6 @@ document.getElementById('publishButton').addEventListener('click', () => {
         number: document.getElementById('issue-number').value || 'NO. 1',
         title: 'The New Dawn Gazette'
     };
-    
     fetch(`https://newspaper/publishNewspaper`, { // Fixed resource name
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -131,47 +130,7 @@ document.getElementById('writeArticleButton').addEventListener('click', () => {
 
 document.getElementById('savePricesButton').addEventListener('click', () => {
     const prices = {
-        newspaper: document.getElementById('newspaper-price-input').value,
-        latest_news: document.getElementById('latest-news-price-input').value,
-        business_ad: document.getElementById('business-ad-price-input').value,
-        private_sales: document.getElementById('private-sales-price-input').value
+        // ...populate prices as needed...
     };
-    
-    // Validate that all prices are numbers
-    let validPrices = true;
-    for (const key in prices) {
-        if (prices[key] && isNaN(Number(prices[key]))) {
-            validPrices = false;
-            break;
-        }
-    }
-    
-    if (!validPrices) {
-        alert('Please enter valid numbers for all price fields.');
-        return;
-    }
-    
-    fetch(`https://newspaper/updatePrices`, { // Fixed resource name
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ prices: prices })
-    })
-    .then(resp => resp.json())
-    .then(result => {
-        if (result.ok) {
-            alert('Prices updated successfully!');
-            // Clear the form fields
-            document.getElementById('newspaper-price-input').value = '';
-            document.getElementById('latest-news-price-input').value = '';
-            document.getElementById('business-ad-price-input').value = '';
-            document.getElementById('private-sales-price-input').value = '';
-        }
-    })
-    .catch(error => console.error('Error updating prices:', error));
-});
-
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        closeUI();
-    }
+    // ...save prices logic...
 });
